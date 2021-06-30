@@ -1,0 +1,148 @@
+/*  重写element ui样式  */
+/* button */
+.el-button {
+	height: 32px;
+	padding: unset;
+	border-radius: 2px;
+	line-height: 32px;
+}
+
+/* group button */
+.el-radio-button:first-child .el-radio-button__inner {
+  border-radius: 2px 0 0 2px;
+}
+.el-radio-button:last-child .el-radio-button__inner {
+  border-radius: 0 2px 2px 0;
+}
+
+/* input */
+.el-input__inner {
+	height: 32px;
+	line-height: 32px;
+	border-radius: 2px;
+}
+
+/* select */
+.el-select-dropdown {
+	border-radius: 2px;
+}
+.el-input__icon {
+	line-height: 32px;
+}
+
+/* table */
+.el-table th {
+	background: #E6EBF4;
+	padding: 5px 0;
+}
+
+.el-table td {
+	padding: 8px 0;
+}
+
+.el-table__body .el-button {
+  height: 22px;
+  line-height: 22px;
+}
+
+/* dialog */
+.el-dialog__title {
+	font-family: PingFangSC-Semibold;
+	font-size: 18px;
+	color: #252B3A;
+	letter-spacing: 0;
+	font-weight: 600;
+}
+
+.el-dialog__header {
+	padding: 30px 30px 0 30px;
+}
+
+.el-dialog__body {
+	padding: 30px;
+}
+
+.el-dialog__body .el-form-item {
+	margin-bottom: 14px;
+}
+
+.el-dialog__body .el-form-item__error {
+	padding-top: 0;
+}
+
+.el-dialog__footer {
+	padding: 0 30px 30px 30px;
+	text-align: center;
+}
+
+.el-dialog__footer .el-button {
+	width: 66px;
+	height: 28px;
+	line-height: 24px;
+	font-size: 12px;
+}
+
+/* message box */
+.el-message {
+  z-index: 9999 !important;
+}
+.el-message-box {
+	padding: 10px;
+    padding-bottom: 20px;
+}
+.el-message-box__content {
+	padding: 20px 15px;
+}
+.el-message-box__btns {
+	text-align: center;
+}
+.el-message-box__btns .el-button {
+	width: 66px;
+	height: 28px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #FFF;
+  background-color: #F66F6A;
+  border-color: #F66F6A;
+}
+
+.el-message-box__btns .el-button:hover {
+	background: #f88c88;
+  border-color: #f88c88;
+  color: #FFF;
+}
+
+.el-message-box__btns .el-button--primary {
+	background: #FFF;
+  border: 1px solid #DCDFE6;
+  color: #606266;
+}
+
+.el-message-box__btns .el-button--primary:hover {
+	color: #6C92FA;
+  border-color: #d3defe;
+  background-color: #f0f4ff;
+}
+
+/* tabs */
+.el-tabs--border-card>.el-tabs__header {
+  background: #f0f2f5;
+}
+
+/* date range */
+.el-date-editor .el-range__icon,
+.el-date-editor .el-range-separator {
+  line-height: 24px;
+}
+
+.el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner {
+  width: 350px;
+}
+
+.el-date-editor .el-range-input {
+  width: 45%;
+}
+
+.el-date-editor .el-range__close-icon {
+  width: 0;
+}

@@ -1,0 +1,33 @@
+version: '2.0'
+env:
+  label: Shennong_BuildEnv_X86_rd
+params:
+  - name: product
+    value: cloudbuild2.0
+steps:
+  PRE_BUILD:
+    - checkout
+  BUILD:
+    - build_execute:
+        command: cd Unified-UI && sh build.sh
+        accelerate: false
+        check:
+          buildcheck:
+            project_dir: Unified-UI
+            exclude_dir: Unified-UI/node_modules;Unified-UI/dist
+          sourcecheck:
+            - project_type: npm
+              project_dir: Unified-UI
+          dependency:
+            - tool_type: npm
+              project_dir: Unified-UI
+              skip_plugin: true
+          callstack: true
+  POST_BUILD:
+    - upload_cloud_artifact:
+        file_path: Unified-UI/dist.tar.gz
+    - compile_report:
+        rules:
+          - error /.*ERROR.*/
+          - warning /.*WARN.*/
+    - version_set

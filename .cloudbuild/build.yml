@@ -1,0 +1,36 @@
+version: '2.0'
+env:
+  label: Shennong_BuildEnv_X86_rd
+params:
+  - name: product
+    value: cloudbuild2.0
+steps:
+  PRE_BUILD:
+    - checkout
+  BUILD:
+    - build_execute:
+        command: sh build.sh
+        accelerate: false
+        check:
+          buildcheck:
+            project_dir: ./
+            exclude_dir: node_modules;dist
+          sourcecheck:
+            - project_type: npm
+              project_dir: ./
+          dependency:
+            - tool_type: npm
+              project_dir: ./
+              skip_plugin: true
+          callstack: true
+  POST_BUILD:
+    - compile_report:
+        rules:
+          - error /.*ERROR.*/
+          - warning /.*WARN.*/
+    - when:
+        condition: ENV_PIPELINE_EXETYPE != 'MRBuild'
+        steps:
+          - upload_cloud_artifact:
+              file_path: dist.tar.gz
+          - version_set
